@@ -1,16 +1,23 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include "fastx_reader.h"
-#include "fasta_read.h"
-
-class FastaReader : public FastxReader
+FastaReader::FastaReader(const std::string &src)
 {
-	public:
-		FastaReader(const std::string &src);
-		~FastaReader();
-		bool next(FastaRead &read);
-	
-	private:
-		std::ifstream m_in;
-};
+	m_in.open(src);
+}
+
+FastaReader::~FastaReader()
+{
+	m_in.close();
+}
+
+bool FastaReader::next(FastaRead &read)
+{
+	if(m_in.eof())
+	{
+		return false;
+	}
+	std::string temp;
+	m_in >> temp;
+	read.setID(temp);
+	m_in >> temp;
+	read.setSequence(temp);
+	return true;
+}
