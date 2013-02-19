@@ -1,4 +1,14 @@
 cmake_minimum_required(VERSION 2.6)
 
 add_subdirectory(counting_nucleotides)
+add_subdirectory(counting_point_mutations)
+add_subdirectory(consensus_and_profile)
+add_subdirectory(calc_protein_mass)
+add_subdirectory(identifying_genomes)
+add_subdirectory(infer_mRNA)
+add_subdirectory(motif_in_dna)
+add_subdirectory(protein_translation)
+add_subdirectory(reverse_complement)
+add_subdirectory(rna_transcription)
+add_subdirectory(overlap_graphs)
 
