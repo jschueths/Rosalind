@@ -4,6 +4,7 @@ ADD_LIBRARY(fasta_read
 	fasta_read.h
 	fasta_read.hpp
 )
+SET_TARGET_PROPERTIES(fasta_read PROPERTIES LINKER_LANGUAGE CXX)
 
 ADD_LIBRARY(fasta_reader
 	fasta_reader.h
@@ -12,4 +13,5 @@ ADD_LIBRARY(fasta_reader
 TARGET_LINK_LIBRARIES(fasta_reader
 	fast_reader
 )
+SET_TARGET_PROPERTIES(fasta_reader PROPERTIES LINKER_LANGUAGE CXX)
 

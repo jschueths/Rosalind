@@ -5,6 +5,7 @@ ADD_LIBRARY(fastx
 	read.hpp
 	fastx_reader.h
 )
+SET_TARGET_PROPERTIES(fastx PROPERTIES LINKER_LANGUAGE CXX)
 
 ADD_SUBDIRECTORY(fasta)
 

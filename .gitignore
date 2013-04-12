@@ -1,0 +1,7 @@
+cmake_install.cmake
+Makefile
+progress.marks
+CMakeFiles/
+Project.cbp
+CMakeCache.txt
+CMakeLists.txt.user
