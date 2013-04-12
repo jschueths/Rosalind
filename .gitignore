@@ -5,3 +5,6 @@ CMakeFiles/
 Project.cbp
 CMakeCache.txt
 CMakeLists.txt.user
+*.a
+*.o
+
