@@ -3,13 +3,13 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
-#include "../../lib/fastx_utils/fasta/fasta_read.h"
+#include <fastx_utils/fasta/fasta_read.h>
 
 using namespace std;
 
 void usage(string argv0)
 {
-	cout << "usage: argv0 <input file> <overlap>" << endl;
+	cout << "usage: " << argv0 << " <input file> <overlap>" << endl;
 	return;
 }
 

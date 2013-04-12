@@ -5,6 +5,7 @@ add_executable(identifying_genomes
 )
 target_link_libraries(identifying_genomes
     fasta_reader
+    fasta_read
 )
 
 

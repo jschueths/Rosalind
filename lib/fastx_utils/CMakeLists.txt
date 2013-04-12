@@ -2,7 +2,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 ADD_LIBRARY(fastx
 	read.h
-	read.hpp
+    read.cpp
 	fastx_reader.h
 )
 SET_TARGET_PROPERTIES(fastx PROPERTIES LINKER_LANGUAGE CXX)

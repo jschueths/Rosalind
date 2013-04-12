@@ -20,6 +20,5 @@ class Read
 		std::string m_seq;
 };
 
-#include "read.hpp"
 #endif
 

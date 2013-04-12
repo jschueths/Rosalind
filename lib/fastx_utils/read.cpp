@@ -1,5 +1,4 @@
-#ifndef __READ_HPP__
-#define __READ_HPP__
+#include "read.h"
 
 Read::Read(){}
 
@@ -38,5 +37,4 @@ const Read& Read::operator=(const Read &src)
 	return *this;
 }
 
-#endif
 

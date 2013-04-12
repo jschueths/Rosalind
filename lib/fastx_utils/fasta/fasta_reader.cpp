@@ -3,7 +3,7 @@
 
 FastaReader::FastaReader(const std::string &src)
 {
-	m_in.open(src);
+	m_in.open(src.c_str());
 }
 
 FastaReader::~FastaReader()
