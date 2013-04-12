@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
-#include "../lib/fasta_read.h"
+#include "../../lib/fastx_utils/fasta/fasta_read.h"
 
 using namespace std;
 
@@ -52,7 +52,8 @@ int main(int argc, char * argv[])
 				for(unsigned int i = 0; i < overlap; i++)
 				{
 					if(begin[i] != end[end.size() - 1 - i])
-						break
+						break;
+				}
 			}
 		}
 	}

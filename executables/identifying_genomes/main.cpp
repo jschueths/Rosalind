@@ -4,12 +4,12 @@
 #include <vector>
 #include <cstdlib>
 #include <iomanip>
-#include "../lib/fasta_read.h"
+#include <fastx_utils/fasta/fasta_read.h>
 using namespace std;
 
 void usage(string argv0)
 {
-	cout << "usage: argv0 <input file>" << endl;
+	cout << "usage: " << argv0 << " <input file>" << endl;
 	return;
 }
 
