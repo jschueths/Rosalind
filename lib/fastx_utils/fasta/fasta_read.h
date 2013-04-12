@@ -15,6 +15,5 @@ class FastaRead : public Read
 		const FastaRead& operator=(const Read &src);
 };
 
-#include "fasta_read.hpp"
 #endif
 

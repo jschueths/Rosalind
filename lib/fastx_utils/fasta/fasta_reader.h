@@ -18,6 +18,4 @@ class FastaReader : public FastxReader
 		std::ifstream m_in;
 };
 
-#include "fasta_reader.hpp"
-
 #endif

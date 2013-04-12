@@ -1,5 +1,4 @@
-#ifndef __FASTA_READ_HPP__
-#define __FASTA_READ_HPP__
+#include "fasta_read.h"
 
 FastaRead::FastaRead(){}
 
@@ -31,6 +30,3 @@ const FastaRead& FastaRead::operator=(const Read &src)
 	m_seq = src.getSequence();
 	return *this;
 }
-
-#endif
-

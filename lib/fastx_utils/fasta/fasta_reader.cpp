@@ -1,3 +1,6 @@
+#include "fasta_read.h"
+#include "fasta_reader.h"
+
 FastaReader::FastaReader(const std::string &src)
 {
 	m_in.open(src);
