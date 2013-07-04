@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
 
-include_directories(../lib)
-
 add_subdirectory(counting_nucleotides)
 add_subdirectory(counting_point_mutations)
 add_subdirectory(consensus_and_profile)

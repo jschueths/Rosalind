@@ -21,7 +21,7 @@ int main(int argc, char * argv[])
 		usage(call);
 		exit(1);
 	}
-	int overlap = atoi(argv[2]);
+	size_t overlap = atoi(argv[2]);
 	vector<FastaRead> read;
 	string tmp_id;
 	string tmp_seq;
@@ -41,17 +41,17 @@ int main(int argc, char * argv[])
 		read.push_back(tmp_read);
 	}
 	inFile.close();
-	for(unsigned int i = 0; i < read.size(); i++)
+	for(size_t i = 0; i < read.size(); i++)
 	{
-		for(unsigned int j = 0; j < read.size(); j++)
+		for(size_t j = 0; j < read.size(); j++)
 		{
 			if(i != j)
 			{
 				string begin = read[i].getSequence();
 				string end = read[j].getSequence();
-				for(unsigned int i = 0; i < overlap; i++)
+				for(size_t k = 0; i < overlap; i++)
 				{
-					if(begin[i] != end[end.size() - 1 - i])
+					if(begin[k] != end[end.size() - 1 - k])
 						break;
 				}
 			}

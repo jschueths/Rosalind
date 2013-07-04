@@ -8,7 +8,7 @@ using namespace std;
 
 void usage(string argv0)
 {
-	cout << "usage: argv0 <input file>" << endl;
+	cout << "usage: " << argv0 << " <input file>" << endl;
 	return;
 }
 
