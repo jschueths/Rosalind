@@ -6,6 +6,6 @@ ADD_EXECUTABLE(unittests
 )
 TARGET_LINK_LIBRARIES(unittests
 	UnitTest++
-    fastx
+    fasta_read
 )
 	

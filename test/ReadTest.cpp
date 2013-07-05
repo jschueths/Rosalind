@@ -1,17 +1,17 @@
 #include <unittest++/UnitTest++.h>
-#include <fastx_utils/read.h>
+#include <fastx_utils/fasta/fasta_read.h>
 
 SUITE(ReadTest)
 {
-	TEST(TestFields)
+	TEST(Fields)
 	{
 		std::string seq = "ACATTTTGATCACCCTAATAGGGAT";
-		Read read;
+		FastaRead read;
 		read.setID("read1");
 		read.setSequence(seq);
 
-		CHECK_EQUAL(read.getID(), "read1");
-		CHECK_EQUAL(read.getSequence(), seq);
+		CHECK_EQUAL("read1", read.getID());
+		CHECK_EQUAL(seq, read.getSequence());
 
 	}
 }

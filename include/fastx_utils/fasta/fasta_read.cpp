@@ -4,19 +4,19 @@ FastaRead::FastaRead(){}
 
 FastaRead::FastaRead(const Read &src)
 {
-	setID(src.getID());
+	FastaRead::setID(src.getID());
 	m_seq = src.getSequence();
 }
 
-FastaRead::FastaRead(const std::string id, const std::string seq)
+FastaRead::FastaRead(const std::string& id, const std::string& seq)
 {
-	setID(id);
+	FastaRead::setID(id);
 	m_seq = seq;
 }
 
 FastaRead::~FastaRead(){}
 
-void FastaRead::setID(const std::string id)
+void FastaRead::setID(const std::string& id)
 {
 	m_id = id;
 	if(m_id[0] == '>')
@@ -24,9 +24,14 @@ void FastaRead::setID(const std::string id)
 	return;
 }
 
-const FastaRead& FastaRead::operator=(const Read &src)
+void FastaRead::setSequence(const std::string &seq)
 {
-	setID(src.getID());
+	m_seq = seq;
+}
+
+const Read& FastaRead::operator=(const Read& src)
+{
+	FastaRead::setID(src.getID());
 	m_seq = src.getSequence();
 	return *this;
 }

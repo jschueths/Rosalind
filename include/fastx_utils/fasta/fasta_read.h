@@ -9,10 +9,11 @@ class FastaRead : public Read
 	public:
 		FastaRead();
 		FastaRead(const Read &src);
-		FastaRead(const std::string id, const std::string seq);
+		FastaRead(const std::string &id, const std::string &seq);
 		~FastaRead();
-		void setID(const std::string id);
-		const FastaRead& operator=(const Read &src);
+		void setID(const std::string &id);
+		void setSequence(const std::string &seq);
+		const Read& operator=(const Read &src);
 };
 
 #endif
