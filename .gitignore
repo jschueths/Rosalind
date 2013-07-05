@@ -8,3 +8,4 @@ CMakeLists.txt.user
 *.a
 *.o
 *.cbp
+build/
