@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
 
-add_subdirectory(counting_nucleotides)
 add_subdirectory(counting_point_mutations)
 add_subdirectory(consensus_and_profile)
 add_subdirectory(calc_protein_mass)
