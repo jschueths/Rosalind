@@ -1,7 +1,6 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-add_executable(counting_nucleotides
-	main.cpp
-)
+ADD_EXECUTABLE(counting_nucleotides counting_nucleotides.cpp)
+TARGET_LINK_LIBRARIES(counting_nucleotides boost_program_options)
 
 
