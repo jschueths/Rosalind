@@ -4,7 +4,13 @@ PROJECT(rosalind CXX)
 
 INCLUDE_DIRECTORIES(include)
 LINK_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR}/lib)
-ADD_DEFINITIONS(-g -fsigned-char -Wall -W -Wshadow -Wpointer-arith -Wcast-qual -Winline -Werror)
+ADD_DEFINITIONS(-g -fsigned-char -Wall -W -Wshadow -Wpointer-arith -Wcast-qual -Winline)
+
+FIND_PACKAGE(Boost)
+IF (Boost_FOUND)
+    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+    ADD_DEFINITIONS( "-DHAS_BOOST" )
+ENDIF()
 
 ADD_SUBDIRECTORY(include)
 ADD_SUBDIRECTORY(src)
