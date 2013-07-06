@@ -12,6 +12,5 @@ SUITE(ReadTest)
 
 		CHECK_EQUAL("read1", read.getID());
 		CHECK_EQUAL(seq, read.getSequence());
-
 	}
 }
