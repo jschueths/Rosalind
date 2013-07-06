@@ -1,0 +1,4 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+ADD_EXECUTABLE(rna_transcription rna_transcription.cpp)
+TARGET_LINK_LIBRARIES(rna_transcription boost_program_options)

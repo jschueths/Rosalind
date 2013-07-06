@@ -8,6 +8,5 @@ ADD_SUBDIRECTORY(infer_mRNA)
 ADD_SUBDIRECTORY(motif_in_dna)
 ADD_SUBDIRECTORY(protein_translation)
 ADD_SUBDIRECTORY(reverse_complement)
-ADD_SUBDIRECTORY(rna_transcription)
 ADD_SUBDIRECTORY(overlap_graphs)
 
