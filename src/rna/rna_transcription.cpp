@@ -2,34 +2,31 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
-using namespace std;
+#include <common/args.h>
+#include <boost/program_options.hpp>
 
-void usage(string argv0)
+std::string process(const std::string &inputFile)
 {
-	cout << "usage: " << argv0 << " <input file>" << endl;
-	return;
-}
-
-int main(int argc, char * argv[])
-{
-	if(argc < 2)
-	{
-		string call = argv[0];
-		usage(call);
-		exit(1);
-	}
-	
-	string sequence;
-	ifstream inFile;
-	inFile.open(argv[1]);
+	std::string sequence;
+	std::ifstream inFile;
+	inFile.open(inputFile.c_str());
 	inFile >> sequence;
-	unsigned int size = sequence.size();
-	for(unsigned int i = 0; i < size; i++)
+	for(size_t i = 0; i < sequence.size(); i++)
 	{
 		if(sequence[i] == 'T')
 			sequence[i] = 'U';
 	}
-	cout << sequence << endl;
+	return sequence;
+}
+
+int main(int argc, char * argv[])
+{
+	std::string inputFile;
+	boost::program_options::options_description desc;
+	desc.add_options()
+			(",i", boost::program_options::value<std::string>(&inputFile)->required(), "Input file");
+	processArgs(argc, argv, desc);
+	std::cout << process(inputFile) << std::endl;
 	return 0;
 }
 
