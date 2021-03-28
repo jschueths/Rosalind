@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
+add_subdirectory(dna)
+add_subdirectory(fib)
+add_subdirectory(rna)
 add_subdirectory(counting_point_mutations)
 add_subdirectory(consensus_and_profile)
 add_subdirectory(calc_protein_mass)

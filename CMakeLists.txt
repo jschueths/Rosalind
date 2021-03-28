@@ -15,6 +15,5 @@ add_compile_options(-Wall)
 find_package(Boost REQUIRED)
 
 add_subdirectory(libs)
-add_subdirectory(src)
 # add_subdirectory(test)
-add_subdirectory(executables)
+add_subdirectory(apps)
