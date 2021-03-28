@@ -10,7 +10,7 @@ include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
 link_directories(${CMAKE_CURRENT_LIST_DIR}/lib)
 
-add_compile_options(-Wall)
+add_compile_options(-Wall -Wextra -Wpedantic)
 
 find_package(Boost REQUIRED)
 
