@@ -1,5 +1,7 @@
 #include "fasta_read.hpp"
 
+namespace fastx {
+
 FastaRead::FastaRead(const Read& src)
 {
     FastaRead::setID(src.getID());
@@ -30,4 +32,6 @@ FastaRead& FastaRead::operator=(const Read& src)
     FastaRead::setID(src.getID());
     m_seq = src.getSequence();
     return *this;
+}
+
 }

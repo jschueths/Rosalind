@@ -6,7 +6,7 @@
 #include <iomanip>
 #include <span>
 
-#include "fasta_read.hpp"
+#include "fastx/fasta_read.hpp"
 
 void usage(const std::string& argv0) {
     std::cout << "usage: " << argv0 << " <input file>" << std::endl;
@@ -31,7 +31,7 @@ int main(int argc, char * argv[]) {
         exit(1);
     }
 
-    std::vector<FastaRead> read;
+    std::vector<fastx::FastaRead> read;
     double max = 0.0;
     unsigned int max_index = 0;
     std::ifstream inFile;

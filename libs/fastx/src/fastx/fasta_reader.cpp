@@ -1,6 +1,8 @@
 #include "fasta_read.hpp"
 #include "fasta_reader.hpp"
 
+namespace fastx {
+
 FastaReader::FastaReader(const std::string &src)
 {
     m_in.open(src.c_str());
@@ -23,4 +25,6 @@ bool FastaReader::next(FastaRead &read)
     m_in >> temp;
     read.setSequence(temp);
     return true;
+}
+
 }

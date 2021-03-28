@@ -4,8 +4,9 @@
 #include <string>
 #include "read.hpp"
 
-class FastaRead : public Read
-{
+namespace fastx {
+
+class FastaRead : public Read {
     public:
         FastaRead() = default;
         FastaRead(const Read& src);
@@ -20,6 +21,8 @@ class FastaRead : public Read
         void setSequence(std::string seq) override;
         FastaRead& operator=(const Read &src);
 };
+
+}
 
 #endif
 

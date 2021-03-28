@@ -4,8 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "fastx_reader.hpp"
-#include "fasta_read.hpp"
+#include "fastx/fastx_reader.hpp"
+#include "fastx/fasta_read.hpp"
+
+namespace fastx {
 
 class FastaReader : public FastxReader
 {
@@ -17,5 +19,7 @@ class FastaReader : public FastxReader
     private:
         std::ifstream m_in;
 };
+
+}
 
 #endif

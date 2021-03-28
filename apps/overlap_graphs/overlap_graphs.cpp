@@ -5,7 +5,7 @@
 #include <span>
 #include <vector>
 
-#include "fasta_read.hpp"
+#include "fastx/fasta_read.hpp"
 
 void usage(std::string_view argv0) {
     std::cout << "usage: " << argv0 << " <input file> <overlap>" << std::endl;
@@ -19,7 +19,7 @@ int main(int argc, char * argv[]) {
     }
 
     size_t overlap = atoi(args[2]);
-    std::vector<FastaRead> read;
+    std::vector<fastx::FastaRead> read;
     std::string tmp_id;
     std::string tmp_seq;
     std::ifstream inFile(args[1]);
@@ -32,7 +32,7 @@ int main(int argc, char * argv[]) {
             inFile >> tmp;
             tmp_seq += tmp;
         }
-        FastaRead tmp_read(tmp_id, tmp_seq);
+        fastx::FastaRead tmp_read(tmp_id, tmp_seq);
         read.push_back(tmp_read);
     }
 
