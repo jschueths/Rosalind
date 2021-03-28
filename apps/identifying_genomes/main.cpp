@@ -4,33 +4,30 @@
 #include <vector>
 #include <cstdlib>
 #include <iomanip>
+#include <span>
+
 #include "fasta_read.hpp"
 
-void usage(std::string argv0)
-{
+void usage(const std::string& argv0) {
     std::cout << "usage: " << argv0 << " <input file>" << std::endl;
-    return;
 }
 
-double getGC(const std::string seq)
-{
-    double result;
+double getGC(const std::string& seq) {
     unsigned int count = 0;
-    for(unsigned int i = 0; i < seq.size(); i++)
+    for(char i : seq)
     {
-        if(seq[i] == 'C' || seq[i] == 'G' || seq[i] == 'c' || seq[i] == 'g')
+        if(i == 'C' || i == 'G' || i == 'c' || i == 'g') {
             count++;
+        }
     }
-    result = (static_cast<double>(count) * 100.0) / static_cast<double>(seq.size());
+    double result = (static_cast<double>(count) * 100.0) / static_cast<double>(seq.size());
     return result;
 }
 
-int main(int argc, char * argv[])
-{
-    if(argc < 2)
-    {
-        std::string call = argv[0];
-        usage(call);
+int main(int argc, char * argv[]) {
+    auto args = std::span<char*>(argv, size_t(argc));
+    if(argc < 2) {
+        usage(args[0]);
         exit(1);
     }
 
@@ -38,20 +35,17 @@ int main(int argc, char * argv[])
     double max = 0.0;
     unsigned int max_index = 0;
     std::ifstream inFile;
-    inFile.open(argv[1]);
-    while(!inFile.eof())
-    {
+    inFile.open(args[1]);
+    while(!inFile.eof()) {
         std::string tmp_id, tmp_seq;
         inFile >> tmp_id;
         inFile >> tmp_seq;
         read.emplace_back(tmp_id, tmp_seq);
     }
     inFile.close();
-    for(unsigned int i = 0; i < read.size(); i++)
-    {
+    for(unsigned int i = 0; i < read.size(); i++) {
         double gc = getGC(read[i].getSequence());
-        if(gc > max)
-        {
+        if(gc > max) {
             max = gc;
             max_index = i;
         }

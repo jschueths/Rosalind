@@ -3,15 +3,13 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
+#include <span>
 
-void usage(std::string argv0)
-{
+void usage(const std::string& argv0) {
     std::cout << "usage: " << argv0 << "<input file>" << std::endl;
-    return;
 }
 
-char getConsensusBase(unsigned int a, unsigned int c, unsigned int g, unsigned int t)
-{
+char getConsensusBase(unsigned int a, unsigned int c, unsigned int g, unsigned int t) {
     unsigned int max = a;
     char result = 'A';
     if(c > max)
@@ -31,21 +29,16 @@ char getConsensusBase(unsigned int a, unsigned int c, unsigned int g, unsigned i
     return result;
 }
 
-void printVector(std::vector<unsigned int> v, unsigned int length)
-{
-    for(unsigned int i = 0; i < length; i++)
-    {
+void printVector(std::vector<unsigned int> v, unsigned int length) {
+    for(unsigned int i = 0; i < length; i++) {
         std::cout << v[i] << " ";
     }
-    return;
 }
 
-int main(int argc, char * argv[])
-{
-    if(argc < 2)
-    {
-        std::string call = argv[0];
-        usage(call);
+int main(int argc, char * argv[]) {
+    auto args = std::span<char*>(argv, size_t(argc));
+    if(argc < 2) {
+        usage(args[0]);
         exit(1);
     }
     std::vector<unsigned int> a_profile;
@@ -59,18 +52,16 @@ int main(int argc, char * argv[])
     unsigned int length = 0;
     std::string consensus;
     std::ifstream inFile;
-    inFile.open(argv[1]);
+    inFile.open(args[1]);
     // Profile the strings:
-    while(!inFile.eof())
-    {
+    while(!inFile.eof()) {
         std::string seq;
         inFile >> seq;
-        if(seq.size())
+        if(seq.size()){
             length = seq.size();
-        for(unsigned int i = 0; i < seq.size(); i++)
-        {
-            switch(seq[i])
-            {
+        }
+        for(unsigned int i = 0; i < seq.size(); i++) {
+            switch(seq[i]) {
                 case 'A':
                 case 'a':
                     a_profile[i]++;
@@ -94,8 +85,9 @@ int main(int argc, char * argv[])
     }
     // Find the consensus string:
     consensus.resize(length);
-    for(unsigned int i = 0; i < length; i++)
+    for(unsigned int i = 0; i < length; i++) {
         consensus[i] = getConsensusBase(a_profile[i], c_profile[i], g_profile[i], t_profile[i]);
+    }
     std::cout << consensus << std::endl;
     std::cout << "A: ";
     printVector(a_profile, length);

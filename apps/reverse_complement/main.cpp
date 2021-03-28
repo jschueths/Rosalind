@@ -1,53 +1,51 @@
-#include <iostream>
-#include <string>
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <ranges>
+#include <span>
+#include <string>
+#include <vector>
 
-void usage(std::string argv0)
+void usage(std::string_view argv0)
 {
     std::cout << "usage: " << argv0 << " <input file>" << std::endl;
-    return;
 }
 
-int main(int argc, char * argv[])
-{
-    if(argc < 2)
-    {
-        std::string call = argv[0];
-        usage(call);
+int main(int argc, char * argv[]) {
+    auto args = std::span<char*>(argv, size_t(argc));
+    if(argc < 2) {
+        usage(args[0]);
         exit(1);
     }
 
     std::string sequence;
     std::string input;
-    std::ifstream inFile;
-    inFile.open(argv[1]);
+    std::ifstream inFile(args[1]);
     inFile >> input;
-    unsigned int size = input.size();
-    sequence.resize(size);
-    for(unsigned int i = 0; i < size; i++)
-    {
-        unsigned int index = size - 1 - i;
-        switch(input[i])
-        {
+
+    auto complement = [](char c) {
+        switch (c) {
             case 'A':
             case 'a':
-                sequence[index] = 'T';
-                break;
+                return 'T';
             case 'C':
             case 'c':
-                sequence[index] = 'G';
-                break;
+                return 'G';
             case 'T':
             case 't':
-                sequence[index] = 'A';
-                break;
+                return 'A';
             case 'G':
             case 'g':
-                sequence[index] = 'C';
+                return 'C';
+            default:
+                return c;
         }
+    };
+
+    for (auto c : input | std::views::transform(complement) | std::views::reverse) {
+        std::cout << c;
     }
-    std::cout << sequence << std::endl;
+    std::cout << std::endl;
     return 0;
 }
 

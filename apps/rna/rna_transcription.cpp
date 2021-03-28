@@ -1,23 +1,22 @@
 #include <algorithm>
+#include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <string>
-#include <fstream>
-#include <cstdlib>
+
 #include <boost/program_options.hpp>
+
 #include "args.hpp"
 
-std::string process(const std::string &inputFile)
-{
+std::string process(const std::string &inputFile) {
     std::string sequence;
-    std::ifstream inFile;
-    inFile.open(inputFile.c_str());
+    std::ifstream inFile(inputFile);
     inFile >> sequence;
     std::replace(std::begin(sequence), std::end(sequence), 'T', 'U');
     return sequence;
 }
 
-int main(int argc, char * argv[])
-{
+int main(int argc, char* argv[]) {
     std::string inputFile;
     boost::program_options::options_description desc;
     desc.add_options()

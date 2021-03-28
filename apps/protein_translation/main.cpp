@@ -1,19 +1,17 @@
-#include <iostream>
-#include <string>
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
 #include <map>
+#include <span>
+#include <string>
 
 std::map<std::string, std::string> codonTable;
 
-void usage(std::string argv0)
-{
+void usage(std::string_view argv0) {
     std::cout << "usage: " << argv0 << " <input file>" << std::endl;
-    return;
 }
 
-void initTable()
-{
+void initTable() {
     /*
     UUU F      CUU L      AUU I      GUU V
     UUC F      CUC L      AUC I      GUC V
@@ -97,36 +95,30 @@ void initTable()
     codonTable["AGG"] = "R";
     codonTable["GGG"] = "G";
     codonTable["GGG"] = "G";
-    return;
 }
 
-std::string codonToAcid(std::string codon)
-{
+std::string codonToAcid(const std::string& codon) {
     return codonTable[codon];
 }
 
-int main(int argc, char * argv[])
-{
-    if(argc < 2)
-    {
-        std::string call = argv[0];
-        usage(call);
+int main(int argc, char * argv[]) {
+    auto args = std::span<char*>(argv, size_t(argc));
+    if(argc < 2) {
+        usage(args[0]);
         exit(1);
     }
     initTable();
     std::string sequence;
     std::string protein = "";
-    std::ifstream inFile;
-    inFile.open(argv[1]);
+    std::ifstream inFile(args[1]);
     inFile >> sequence;
-    inFile.close();
 
-    unsigned int size = sequence.size();
-    for(unsigned int i = 0; i * 3 < size; i++)
-    {
+    auto size = sequence.size();
+    for(size_t i = 0; i * 3 < size; i++) {
         std::string tran = codonToAcid(sequence.substr(i*3, 3));
-        if(tran == "Stop")
+        if(tran == "Stop") {
             break;
+        }
         protein += tran;
     }
     std::cout << protein << std::endl;

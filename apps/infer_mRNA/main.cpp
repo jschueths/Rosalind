@@ -1,10 +1,11 @@
-#include <iostream>
-#include <string>
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
 #include <map>
+#include <span>
+#include <string>
 
-void usage(const std::string& argv) {
+void usage(const std::string_view& argv) {
     std::cout << "usage: " << argv << " <input file>" << std::endl;
 }
 
@@ -53,17 +54,16 @@ std::map<char, int> init_map() {
 }
 
 int main(int argc, char* argv[]) {
+    auto args = std::span<char*>(argv, size_t(argc));
     if(argc < 2) {
-        std::string call = argv[0];
-        usage(call);
+        usage(args[0]);
         exit(1);
     }
 
     std::string seq;
-    std::ifstream inFile;
+    std::ifstream inFile(args[1]);
     auto val = init_map();
     long long int product = 1;
-    inFile.open(argv[1]);
     inFile >> seq;
     for (char& i : seq) {
        product *= val[i];

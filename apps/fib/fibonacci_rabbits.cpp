@@ -33,8 +33,7 @@ int processRabbits(int months, int rate) {
     int result = 0;
     int nextMature = 0;
     int nextYoung = 0;
-    for(int i = 0; i < months; i++)
-    {
+    for(int i = 0; i < months; i++) {
         result = mature + young;
         nextMature = mature + young;
         nextYoung = mature * rate;
