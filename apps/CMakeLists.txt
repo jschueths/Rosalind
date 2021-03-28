@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-add_subdirectory(dna)
+add_subdirectory(counting_nucleotides)
 add_subdirectory(fib)
 add_subdirectory(rna_transcription)
 add_subdirectory(counting_point_mutations)
