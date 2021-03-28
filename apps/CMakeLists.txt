@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 add_subdirectory(counting_nucleotides)
-add_subdirectory(fib)
+add_subdirectory(fibonacci_rabbits)
 add_subdirectory(rna_transcription)
 add_subdirectory(counting_point_mutations)
 add_subdirectory(consensus_and_profile)
