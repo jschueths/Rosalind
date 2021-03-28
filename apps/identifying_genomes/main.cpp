@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstdlib>
 #include <iomanip>
-#include <fastx_utils/fasta/fasta_read.h>
+#include "fasta_read.h"
 using namespace std;
 
 void usage(string argv0)

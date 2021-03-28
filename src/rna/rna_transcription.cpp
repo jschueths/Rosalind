@@ -3,8 +3,8 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
-#include <common/args.h>
 #include <boost/program_options.hpp>
+#include "args.h"
 
 std::string process(const std::string &inputFile)
 {

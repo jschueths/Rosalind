@@ -2,7 +2,7 @@
 #define __FASTA_READ_H__
 
 #include <string>
-#include "../read.h"
+#include "read.h"
 
 class FastaRead : public Read
 {

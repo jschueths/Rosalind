@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 3.16)
-
-ADD_SUBDIRECTORY(Posix)
-ADD_SUBDIRECTORY(Win32)
-
