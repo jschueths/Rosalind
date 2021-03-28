@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <vector>
-#include "fasta_read.h"
+#include "fasta_read.hpp"
 
 using namespace std;
 

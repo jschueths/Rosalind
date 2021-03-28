@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "fastx_reader.h"
-#include "fasta_read.h"
+#include "fastx_reader.hpp"
+#include "fasta_read.hpp"
 
 class FastaReader : public FastxReader
 {

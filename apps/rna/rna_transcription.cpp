@@ -4,7 +4,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <boost/program_options.hpp>
-#include "args.h"
+#include "args.hpp"
 
 std::string process(const std::string &inputFile)
 {

@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 
 add_library(fastx
-    src/read.h
+    src/read.hpp
     src/read.cpp
-    src/fastx_reader.h
-    src/fasta_read.h
+    src/fastx_reader.hpp
+    src/fasta_read.hpp
     src/fasta_read.cpp
-    src/fasta_reader.h
+    src/fasta_reader.hpp
     src/fasta_reader.cpp
 )
 

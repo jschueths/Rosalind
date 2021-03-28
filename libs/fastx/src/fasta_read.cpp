@@ -1,4 +1,4 @@
-#include "fasta_read.h"
+#include "fasta_read.hpp"
 
 FastaRead::FastaRead(const Read& src)
 {
