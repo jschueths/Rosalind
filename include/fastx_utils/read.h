@@ -6,12 +6,12 @@
 class Read
 {
 	public:
-		virtual ~Read();
-		virtual void setID(const std::string &id) = 0;
-		virtual void setSequence(const std::string& seq) = 0;
+      virtual ~Read() = default;
+      virtual void setID(std::string id) = 0;
+      virtual void setSequence(std::string seq) = 0;
 		virtual const std::string& getID() const;
 		virtual const std::string& getSequence() const;
-		virtual const Read& operator=(const Read &src);
+      Read& operator=(const Read&) = default;
 	protected:
 		std::string m_id;
 		std::string m_seq;

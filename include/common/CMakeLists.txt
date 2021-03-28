@@ -1,6 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-ADD_LIBRARY(common
-    args.h args.cpp
-)
-TARGET_LINK_LIBRARIES(common boost_program_options)
+add_library(common args.h args.cpp)
+target_link_libraries(common Boost::program_options)

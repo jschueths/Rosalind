@@ -1,18 +1,21 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-PROJECT(rosalind CXX)
+project(rosalind CXX)
 
-INCLUDE_DIRECTORIES(include)
-LINK_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR}/lib)
-ADD_DEFINITIONS(-g -fsigned-char -Wall -W -Wshadow -Wpointer-arith -Wcast-qual -Winline)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-FIND_PACKAGE(Boost)
-IF (Boost_FOUND)
-    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
-    ADD_DEFINITIONS( "-DHAS_BOOST" )
-ENDIF()
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 
-ADD_SUBDIRECTORY(include)
-ADD_SUBDIRECTORY(src)
-ADD_SUBDIRECTORY(test)
-ADD_SUBDIRECTORY(executables)
+include_directories(include)
+link_directories(${CMAKE_CURRENT_LIST_DIR}/lib)
+
+add_compile_options(-Wall)
+
+find_package(Boost REQUIRED)
+
+add_subdirectory(include)
+add_subdirectory(src)
+# add_subdirectory(test)
+add_subdirectory(executables)

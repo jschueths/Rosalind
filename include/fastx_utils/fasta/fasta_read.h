@@ -6,14 +6,19 @@
 
 class FastaRead : public Read
 {
-	public:
-		FastaRead();
-		FastaRead(const Read &src);
-		FastaRead(const std::string &id, const std::string &seq);
-		~FastaRead();
-		void setID(const std::string &id);
-		void setSequence(const std::string &seq);
-		const Read& operator=(const Read &src);
+    public:
+        FastaRead() = default;
+        FastaRead(const Read& src);
+        FastaRead(const FastaRead&) = default;
+        FastaRead(FastaRead&& src) = default;
+        FastaRead(std::string id, std::string seq);
+        FastaRead& operator=(const FastaRead&) = default;
+        FastaRead& operator=(FastaRead&&) = default;
+        ~FastaRead() = default;
+
+        void setID(std::string id) override;
+        void setSequence(std::string seq) override;
+        FastaRead& operator=(const Read &src);
 };
 
 #endif

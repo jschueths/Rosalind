@@ -4,16 +4,11 @@
 #include <cstdlib>
 #include <map>
 
-using namespace std;
-
-void usage(string argv0)
-{
-	cout << "usage: " << argv0 << " <input file>" << endl;
-	return;
+void usage(const std::string& argv) {
+    std::cout << "usage: " << argv << " <input file>" << std::endl;
 }
 
-map<char, size_t> init_map()
-{
+std::map<char, int> init_map() {
     /*
     UUU F      CUU L      AUU I      GUU V
     UUC F      CUC L      AUC I      GUC V
@@ -32,7 +27,7 @@ map<char, size_t> init_map()
     UGA Stop   CGA R      AGA R      GGA G
     UGG W      CGG R      AGG R      GGG G
     */
-    map<char, unsigned int> result;
+    std::map<char, int> result;
     result['F'] = 2;
     result['L'] = 4;
     result['S'] = 6;
@@ -57,26 +52,26 @@ map<char, size_t> init_map()
     return result;
 }
 
-int main(int argc, char * argv[])
-{
-	if(argc < 2)
-	{
-		string call = argv[0];
-		usage(call);
-		exit(1);
-	}
-	
-    string seq;
-    ifstream inFile;
-    map<char, unsigned int> val = init_map();
-    unsigned long long int product = 1;
+int main(int argc, char* argv[]) {
+    if(argc < 2) {
+        std::string call = argv[0];
+        usage(call);
+        exit(1);
+    }
+
+    std::string seq;
+    std::ifstream inFile;
+    auto val = init_map();
+    long long int product = 1;
     inFile.open(argv[1]);
     inFile >> seq;
-    for(unsigned int i = 0; i < seq.size(); i++)
-        product *= val[seq[i]];
+    for (char& i : seq) {
+       product *= val[i];
+    }
+
     product *= 3;
-    cout << product << endl;
-	inFile.close();
-	return 0;
+    std::cout << product << std::endl;
+    inFile.close();
+    return 0;
 }
 
