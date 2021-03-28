@@ -1,11 +1,11 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
-ADD_LIBRARY(fastx
-	read.h
+add_library(fastx
+    read.h
     read.cpp
     fastx_reader.h
 )
-SET_TARGET_PROPERTIES(fastx PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(fastx PROPERTIES LINKER_LANGUAGE CXX)
 
-ADD_SUBDIRECTORY(fasta)
+add_subdirectory(fasta)
 

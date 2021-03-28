@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-ADD_EXECUTABLE(rna_transcription rna_transcription.cpp)
-TARGET_LINK_LIBRARIES(rna_transcription common Boost::program_options)
+add_executable(rna_transcription rna_transcription.cpp)
+target_link_libraries(rna_transcription common Boost::program_options)

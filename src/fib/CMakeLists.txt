@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-ADD_EXECUTABLE(fibonacci_rabbits fibonacci_rabbits.cpp)
-TARGET_LINK_LIBRARIES(fibonacci_rabbits Boost::program_options)
+add_executable(fibonacci_rabbits fibonacci_rabbits.cpp)
+target_link_libraries(fibonacci_rabbits Boost::program_options)

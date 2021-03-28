@@ -1,6 +1,5 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
-ADD_SUBDIRECTORY(unittest++)
-ADD_SUBDIRECTORY(fastx_utils)
-ADD_SUBDIRECTORY(common)
-
+add_subdirectory(unittest++)
+add_subdirectory(fastx_utils)
+add_subdirectory(common)

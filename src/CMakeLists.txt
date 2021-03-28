@@ -1,5 +1,5 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-ADD_SUBDIRECTORY(dna)
-ADD_SUBDIRECTORY(fib)
-ADD_SUBDIRECTORY(rna)
+add_subdirectory(dna)
+add_subdirectory(fib)
+add_subdirectory(rna)

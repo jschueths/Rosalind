@@ -1,21 +1,18 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-ADD_LIBRARY(fasta_read
-	fasta_read.h
+add_library(fasta_read
+    fasta_read.h
     fasta_read.cpp
 )
-TARGET_LINK_LIBRARIES(fasta_read
+target_link_libraries(fasta_read
     fastx
 )
-SET_TARGET_PROPERTIES(fasta_read PROPERTIES LINKER_LANGUAGE CXX)
 
-ADD_LIBRARY(fasta_reader
-	fasta_reader.h
+add_library(fasta_reader
+    fasta_reader.h
     fasta_reader.cpp
 )
-TARGET_LINK_LIBRARIES(fasta_reader
+target_link_libraries(fasta_reader
     fasta_read
     fastx
 )
-SET_TARGET_PROPERTIES(fasta_reader PROPERTIES LINKER_LANGUAGE CXX)
-

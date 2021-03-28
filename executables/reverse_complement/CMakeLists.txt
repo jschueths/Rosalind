@@ -1,7 +1,7 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
 add_executable(reverse_complement
-	main.cpp
+    main.cpp
 )
 
 

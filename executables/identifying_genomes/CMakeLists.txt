@@ -1,7 +1,7 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
 add_executable(identifying_genomes
-	main.cpp
+    main.cpp
 )
 target_link_libraries(identifying_genomes
     fasta_reader
