@@ -5,11 +5,9 @@
 #include <vector>
 #include "fasta_read.hpp"
 
-using namespace std;
-
-void usage(string argv0)
+void usage(std::string argv0)
 {
-    cout << "usage: " << argv0 << " <input file> <overlap>" << endl;
+    std::cout << "usage: " << argv0 << " <input file> <overlap>" << std::endl;
     return;
 }
 
@@ -17,19 +15,19 @@ int main(int argc, char * argv[])
 {
     if(argc < 3)
     {
-        string call = argv[0];
+        std::string call = argv[0];
         usage(call);
         exit(1);
     }
     size_t overlap = atoi(argv[2]);
-    vector<FastaRead> read;
-    string tmp_id;
-    string tmp_seq;
-    ifstream inFile;
+    std::vector<FastaRead> read;
+    std::string tmp_id;
+    std::string tmp_seq;
+    std::ifstream inFile;
     inFile.open(argv[1]);
     while(!inFile.eof())
     {
-        string tmp;
+        std::string tmp;
         inFile >> tmp;
         tmp_id = tmp;
         while(!inFile.eof() && inFile.peek() != '>')
@@ -47,8 +45,8 @@ int main(int argc, char * argv[])
         {
             if(i != j)
             {
-                string begin = read[i].getSequence();
-                string end = read[j].getSequence();
+                std::string begin = read[i].getSequence();
+                std::string end = read[j].getSequence();
                 for(size_t k = 0; i < overlap; i++)
                 {
                     if(begin[k] != end[end.size() - 1 - k])

@@ -1,20 +1,19 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "monoisotopic_mass.hpp"
 #include <iomanip>
 
-using namespace std;
+#include "monoisotopic_mass.hpp"
 
 int main(int argc, char *argv[]) {
     if(argc != 2) {
-        cout << "Improper usage." << endl;
+        std::cout << "Improper usage." << std::endl;
         return 1;
     }
-    string fileName = argv[1];
-    string proteinString;
+    std::string fileName = argv[1];
+    std::string proteinString;
 
-    ifstream in;
+    std::ifstream in;
     in.open(fileName.c_str());
     in >> proteinString;
     in.close();
@@ -25,6 +24,6 @@ int main(int argc, char *argv[]) {
     {
         weight += massTable.getMass(proteinString[i]);
     }
-    cout << setprecision(15) << "Weight: " << weight << endl;
+    std::cout << std::setprecision(15) << "Weight: " << weight << std::endl;
     return 0;
 }

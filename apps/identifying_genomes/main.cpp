@@ -5,15 +5,14 @@
 #include <cstdlib>
 #include <iomanip>
 #include "fasta_read.hpp"
-using namespace std;
 
-void usage(string argv0)
+void usage(std::string argv0)
 {
-    cout << "usage: " << argv0 << " <input file>" << endl;
+    std::cout << "usage: " << argv0 << " <input file>" << std::endl;
     return;
 }
 
-double getGC(const string seq)
+double getGC(const std::string seq)
 {
     double result;
     unsigned int count = 0;
@@ -30,15 +29,15 @@ int main(int argc, char * argv[])
 {
     if(argc < 2)
     {
-        string call = argv[0];
+        std::string call = argv[0];
         usage(call);
         exit(1);
     }
 
-    vector<FastaRead> read;
+    std::vector<FastaRead> read;
     double max = 0.0;
     unsigned int max_index = 0;
-    ifstream inFile;
+    std::ifstream inFile;
     inFile.open(argv[1]);
     while(!inFile.eof())
     {
@@ -57,8 +56,8 @@ int main(int argc, char * argv[])
             max_index = i;
         }
     }
-    cout << read[max_index].getID() << endl;
-    cout << setprecision(8) << max << "%" << endl;
+    std::cout << read[max_index].getID() << std::endl;
+    std::cout << std::setprecision(8) << max << "%" << std::endl;
 
     return 0;
 }

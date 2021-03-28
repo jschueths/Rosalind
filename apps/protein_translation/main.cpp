@@ -3,14 +3,13 @@
 #include <fstream>
 #include <cstdlib>
 #include <map>
-using namespace std;
 
-map<string, string> codonTable;
+std::map<std::string, std::string> codonTable;
 
-void usage(string argv0)
+void usage(std::string argv0)
 {
-	cout << "usage: " << argv0 << " <input file>" << endl;
-	return;
+    std::cout << "usage: " << argv0 << " <input file>" << std::endl;
+    return;
 }
 
 void initTable()
@@ -101,36 +100,36 @@ void initTable()
     return;
 }
 
-string codonToAcid(string codon)
+std::string codonToAcid(std::string codon)
 {
     return codonTable[codon];
 }
 
 int main(int argc, char * argv[])
 {
-	if(argc < 2)
-	{
-		string call = argv[0];
-		usage(call);
-		exit(1);
-	}
+    if(argc < 2)
+    {
+        std::string call = argv[0];
+        usage(call);
+        exit(1);
+    }
     initTable();
-	string sequence;
-	string protein = "";
-	ifstream inFile;
-	inFile.open(argv[1]);
-	inFile >> sequence;
-	inFile.close();
+    std::string sequence;
+    std::string protein = "";
+    std::ifstream inFile;
+    inFile.open(argv[1]);
+    inFile >> sequence;
+    inFile.close();
 
-	unsigned int size = sequence.size();
-	for(unsigned int i = 0; i * 3 < size; i++)
-	{
-        string tran = codonToAcid(sequence.substr(i*3, 3));
+    unsigned int size = sequence.size();
+    for(unsigned int i = 0; i * 3 < size; i++)
+    {
+        std::string tran = codonToAcid(sequence.substr(i*3, 3));
         if(tran == "Stop")
             break;
         protein += tran;
-	}
-	cout << protein << endl;
-	return 0;
+    }
+    std::cout << protein << std::endl;
+    return 0;
 }
 
